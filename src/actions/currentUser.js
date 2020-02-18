@@ -6,8 +6,12 @@ export const setCurrentUser = user => {
   }
 }
 
+export const logoutCurrentUser = () => {
+  return {
+    type: "LOGOUT_CURRENT_USER"
+  }
+}
 
-//asychronous action creators
 export const login = credentials => {
   console.log("credentials are", credentials)
   return dispatch => {
@@ -29,6 +33,18 @@ export const login = credentials => {
         .catch(console.log)
   }
 }
+
+export const logout = () => {
+  return (dispatch) => {
+    dispatch(logoutCurrentUser())
+    return fetch('http://localhost:3001/api/v1/logout', {
+      credentials: "include",
+      method: "DELETE"
+    })
+  }
+}
+//asychronous action creators
+
 
 
 export const getCurrentUser = () => {

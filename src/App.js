@@ -1,8 +1,10 @@
 import React from 'react';
 import './App.css';
-import Login from "./components/login.js"
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
+import NavBar from './components/NavBar.js';
+import MainContainer from './components/MainContainer.js'
+
 
 class App extends React.Component {
 
@@ -10,11 +12,14 @@ class App extends React.Component {
     this.props.getCurrentUser()
   }
 
-  render (){
+  render () {
     return (
-      <Login/>
+      <div className = "App">
+        <NavBar/>
+        <MainContainer/>
+      </div>
     );
   }
 }
 
-export default App;
+export default connect(null, { getCurrentUser })(App);
