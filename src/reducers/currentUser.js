@@ -4,7 +4,6 @@ export default (state = null, action) => {
       return action.user
     case "LOGOUT_CURRENT_USER":
       return null
-      break;
     default:
       return state
   }

@@ -27,12 +27,7 @@ const Login = ({ loginForm, updateLoginForm, login }) => {
     </form>
   )
 }
-//taking state from redux and putting it into the store via connect
-//it gives me an argument coming to this component that looks like this:
-// {
-//   username: "liquidsword"
-//   password: "torch"
-// }
+
 const mapStateToProps = state => {
   return {
     loginForm: state.loginForm
