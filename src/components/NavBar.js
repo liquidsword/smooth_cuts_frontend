@@ -6,8 +6,10 @@ import Logout from './logout.js';
 const NavBar = ({ currentUser }) => {
   return (
     <div className = "NavBar">
-      { currentUser ? <strong> Hi ${currentUser.name}, welcome to Smooth Cuts.</strong>: ""}
-      { currentUser ? <Logout/> : <Login/> }
+      { currentUser ? <strong> Hi, welcome to Smooth Cuts.</strong>: ""}
+      <button>Login </button>
+      OR
+      <button>Sign Up</button>
     </div>
   )
 }

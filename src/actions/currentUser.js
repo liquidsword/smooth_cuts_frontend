@@ -1,4 +1,6 @@
 //synchronous action creators
+import { resetLoginForm } from './loginForm_action.js'
+
 export const setCurrentUser = user => {
   return {
     type: "SET_CURRENT_USER",
@@ -21,6 +23,7 @@ export const login = credentials => {
       headers: {
         "Content-Type": "application/json"
       },
+      body: JSON.stringify(credentials)
     })
         .then(r => r.json())
         .then(user => {
@@ -50,7 +53,7 @@ export const logout = () => {
 export const getCurrentUser = () => {
   console.log("DISPATCHING GET CURRENT USER")
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/get_current_user", {
+    return fetch('http://localhost:3001/api/v1/get_current_user', {
       credentials: "include",
       method: "GET",
       headers: {
@@ -62,7 +65,7 @@ export const getCurrentUser = () => {
           if (user.error) {
             alert(user.error)
           } else {
-            dispatch(setCurrentUser(user))
+            dispatch(setCurrentUser(user.data))
           }
         })
         .catch(console.log)
