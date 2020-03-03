@@ -1,5 +1,6 @@
 //synchronous action creators
 import { resetLoginForm } from './loginForm_action.js'
+import { resetSignupForm } from './signupForm.js'
 
 export const setCurrentUser = user => {
   return {
@@ -36,6 +37,34 @@ export const login = credentials => {
         .catch(console.log)
   }
 }
+
+
+export const signup = credentials => {
+  return dispatch => {
+    const userInfo = {
+      user: credentials
+    }
+    return fetch("http://localhost:3001/api/v1/signup", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+        .then(r => r.json())
+        .then(user => {
+          if (user.error) {
+            alert(user.error)
+          } else {
+            dispatch(setCurrentUser(user))
+            dispatch(resetSignupForm())
+          }
+        })
+        .catch(console.log)
+  }
+}
+
 
 export const logout = () => {
   return (dispatch) => {
