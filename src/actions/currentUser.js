@@ -1,6 +1,7 @@
 //synchronous action creators
-import { resetLoginForm } from './loginForm_action.js'
-import { resetSignupForm } from './signupForm.js'
+import { resetLoginForm } from './loginForm_action.js';
+import { resetSignupForm } from './signupForm.js';
+import { getMyPosts, clearPosts } from './myPosts.js'
 
 export const setCurrentUser = user => {
   return {
@@ -15,8 +16,7 @@ export const logoutCurrentUser = () => {
   }
 }
 
-export const login = credentials => {
-  console.log("credentials are", credentials)
+export const login = ( credentials, history) => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
@@ -31,7 +31,10 @@ export const login = credentials => {
           if (user.error) {
             alert(user.error)
           } else {
-            dispatch(setCurrentUser(user))
+            dispatch(setCurrentUser(user.data))
+            dispatch(getMyPosts())
+            dispatch(resetLoginForm())
+            history.push('/')
           }
         })
         .catch(console.log)
@@ -39,7 +42,7 @@ export const login = credentials => {
 }
 
 
-export const signup = credentials => {
+export const signup = (credentials, history) => {
   return dispatch => {
     const userInfo = {
       user: credentials
@@ -58,17 +61,19 @@ export const signup = credentials => {
             alert(user.error)
           } else {
             dispatch(setCurrentUser(user))
+            dispatch(getMyPosts())
             dispatch(resetSignupForm())
+            history.push('/')
           }
         })
         .catch(console.log)
   }
 }
 
-
-export const logout = () => {
+export const logout = event => {
   return (dispatch) => {
     dispatch(logoutCurrentUser())
+    dispatch(clearPosts())
     return fetch('http://localhost:3001/api/v1/logout', {
       credentials: "include",
       method: "DELETE"
@@ -76,8 +81,6 @@ export const logout = () => {
   }
 }
 //asychronous action creators
-
-
 
 export const getCurrentUser = () => {
   console.log("DISPATCHING GET CURRENT USER")
@@ -95,6 +98,7 @@ export const getCurrentUser = () => {
             alert(user.error)
           } else {
             dispatch(setCurrentUser(user.data))
+            dispatch(getMyPosts())
           }
         })
         .catch(console.log)
