@@ -1,13 +1,14 @@
 import React from 'react';
-import PostCard from './PostCard.js'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 const MyPosts = props => {
-  const postCards = props.posts.length > 0 ? props.posts.map(p => <PostCard post={p} key={p.id}/>) : null
-  return (
-    postCards
-  )
+  const postCards = props.posts.length > 0 ?
+    props.posts.map(c => (<p key={c.id}><Link to={`/posts/${c.id}`}>{c.attributes.title}</Link></p>)) : null
+
+  return postCards
+
 }
 
 const mapStateToProps = state => {

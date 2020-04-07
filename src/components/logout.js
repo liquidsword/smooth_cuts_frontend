@@ -11,9 +11,9 @@ const Logout = ({ logout, history }) => {
       history.push('/')
       }
     }>
-      <input value="submit" type="Log Out"/>
+      <input type="submit" value="Log Out"/>
     </form>
   )
 }
 
-export default withRouter(connect(null, { logout })(logout))
+export default withRouter(connect(null, { logout })(Logout))

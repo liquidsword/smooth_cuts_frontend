@@ -6,3 +6,9 @@ export const updateNewPostForm = (name, value) => {
     formData: { name, value }
   }
 }
+
+export const resetNewPostForm = () => {
+  return {
+    type: "RESET_NEW_POST_FORM"
+  }
+}

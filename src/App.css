@@ -31,7 +31,6 @@
 .NavBar {
   display: flex;
   flex-direction: column;
-  color: blue;
 }
 
 a.active {

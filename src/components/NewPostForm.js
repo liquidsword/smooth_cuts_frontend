@@ -1,17 +1,19 @@
 import React from 'react';
+import { createPost } from '../actions/myPosts.js'
 import { updateNewPostForm } from '../actions/newPostForm.js'
 import { connect } from 'react-redux'
 
-const NewPostForm = ({ title, comment, history }) => {
+const NewPostForm = ({ title, content, history, updateNewPostForm, userId, post, handleSubmit }) => {
   const handleChange = event => {
     const { name, value } = event.target
     updateNewPostForm(name, value)
   }
 
-  const handleSubmit = event => event.preventDefault()
-
   return (
-  <form onSubmit={handleSubmit}>
+  <form onSubmit = { event => {
+        event.preventDefault()
+        handleSubmit(title, content)
+      }}>
     <input
       placeholder= "title"
       name="title"
@@ -19,10 +21,10 @@ const NewPostForm = ({ title, comment, history }) => {
       value={title}
     /><br/>
     <input
-      placeholder= "comment"
-      name="comment"
+      placeholder= "content"
+      name="content"
       onChange={handleChange}
-      value={comment}
+      value={content}
     /><br/>
     <input
       type="submit"
@@ -31,10 +33,12 @@ const NewPostForm = ({ title, comment, history }) => {
 )};
 
 const mapStateToProps = state => {
-  const { title, comment } = state.newPostForm
+  const userId = state.currentUser ? state.currentUser.id : ""
+  const { title, content } = state.newPostForm
   return {
     title,
-    comment
+    content,
+    userId
   }
 }
 

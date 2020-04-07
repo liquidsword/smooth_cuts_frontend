@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateLoginForm } from "../actions/loginForm_action.js"
+import { updateSignupForm } from "../actions/signupForm.js"
 import { signup } from "../actions/currentUser.js"
 
 const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
@@ -24,7 +24,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
       <input placeholder="name" value={signupFormData.name} name="name" type="text" onChange={handleInputChange} />
       <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleInputChange} />
       <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleInputChange} />
-      <input value="Signup" type="submit"/>
+      <input value="signup" type="submit"/>
     </form>
   )
 }

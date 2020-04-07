@@ -2,7 +2,10 @@ import React from 'react';
 
 const PostCard = ( { post }) => {
   return (
-    <p>{post.attributes.title}</p>
+    <div>
+      <h3>{post.attributes.title}</h3>
+      <p>{post.attributes.content}</p>
+    </div>
   )
 }
 

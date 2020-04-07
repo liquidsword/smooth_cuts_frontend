@@ -1,9 +1,13 @@
-export default (state = [], action) => {
+const initialState = []
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case "SET_MY_POSTS":
-      return action.trips
+      return action.posts
+    case 'ADD_POST':
+      return state.posts.concat(action.posts)
     case "CLEAR_POSTS":
-      return []
+      return initialState
     default:
       return state
   }
