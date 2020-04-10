@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-image: url('./B+W tools.jpg');
+  height: 700px;
+  position: top;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .App-logo {
@@ -31,7 +37,10 @@
 .NavBar {
   display: flex;
   flex-direction: column;
+  background-color: #cccccc;
+
 }
+
 
 a.active {
   color: green;

@@ -25,7 +25,9 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
       <input placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} />
       <input value="Login" type="submit"/>
     </form>
+  
   )
+
 }
 
 const mapStateToProps = state => {

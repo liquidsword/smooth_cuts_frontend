@@ -2,11 +2,17 @@ import React from 'react'
 import Login from './login.js'
 import Signup from './Signup.js'
 import { Link } from 'react-router-dom'
+import tools from '../B+W tools.jpg'
 
 const Home = ({}) => (
-  <div>
-    <h4>Welcome, please <Link to="/signup">sign-up</Link> or <Link to="/login">Log In</Link></h4>
-  </div>
+<>
+
+    <h2>Welcome, please <Link to="/signup">sign-up</Link> or <Link to="/login">Log In</Link></h2>
+<br/>
+
+<div className ="Homescreen"></div>
+
+</>
 );
 
 export default Home;
