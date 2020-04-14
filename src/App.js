@@ -10,6 +10,7 @@ import MyPosts from './components/MyPosts.js'
 import PostCard from './components/PostCard.js'
 import Home from './components/Home.js'
 import NewPostFormWrapper from './components/NewPostFormWrapper.js'
+import EditPostFormWrapper from './components/EditPostFormWrapper'
 import { Route, Switch, withRouter, Link } from 'react-router-dom'
 
 class App extends React.Component {
@@ -34,6 +35,11 @@ class App extends React.Component {
                 return <PostCard post={post} {...props}/>
                 }
               }/>
+              <Route exact path = '/posts/:id/edit' render = { props => {
+                const post = posts.find(post => post.id === props.match.params.id)
+                return <EditPostFormWrapper post={post} {...props}/>
+              }
+            }/>
           </Switch>
           </div>
     );

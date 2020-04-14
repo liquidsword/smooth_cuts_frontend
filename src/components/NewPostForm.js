@@ -3,7 +3,7 @@ import { createPost } from '../actions/myPosts.js'
 import { updateNewPostForm } from '../actions/newPostForm.js'
 import { connect } from 'react-redux'
 
-const NewPostForm = ({ title, content, history, updateNewPostForm, userId, post, handleSubmit }) => {
+const NewPostForm = ({ title, content, history, updateNewPostForm, userId, post, handleSubmit, editMode }) => {
   const handleChange = event => {
     const { name, value } = event.target
     updateNewPostForm(name, value)
@@ -28,7 +28,7 @@ const NewPostForm = ({ title, content, history, updateNewPostForm, userId, post,
     /><br/>
     <input
       type="submit"
-      value="Create Post"/>
+      value={ editMode ? "Update Trip" : "Create Post" }/>
   </form>
 )};
 

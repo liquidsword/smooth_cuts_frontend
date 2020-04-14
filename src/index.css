@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
-h2 {
+h2, h3 {
   color: white;
+}
+
+p {
+  color: yellow;
 }

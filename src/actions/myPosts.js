@@ -22,6 +22,20 @@ export const addPost = post => {
   }
 }
 
+export const deletePostForever = postId => {
+  return {
+    type: "DELETE_POST",
+    postId
+  }
+}
+
+export const updatePostNow = post => {
+  return {
+    type: "UPDATE_POST",
+    post
+  }
+}
+
 //async actions
 export const getMyPosts = () => {
     return dispatch => {
@@ -68,6 +82,58 @@ export const createPost = (postData, history) => {
           dispatch(addPost(resp.data))
           dispatch(resetNewPostForm())
           history.push(`/posts/${resp.data.id}`)
+        }
+      })
+      .catch(console.log)
+  }
+}
+
+export const updatePost = (postData, history) => {
+  return dispatch => {
+    const changeablePostData = {
+      title: postData.title,
+      content: postData.content,
+      user_id: postData.userId
+    }
+    return fetch(`http://localhost:3001/api/v1/posts/${postData.postId}`, {
+      credentials: "include",
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(changeablePostData)
+    })
+    .
+
+    then(r => r.json())
+    .then(resp => {
+      if (resp.error) {
+        alert(resp.error)
+      } else {
+        dispatch(updatePostNow(resp.data))
+        history.push(`/posts/${resp.data.id}`)
+      }
+    })
+    .catch(console.log)
+  }
+}
+
+export const deletePost = (postId, postData, history) => {
+  return dispatch => {
+    return fetch (`http://localhost:3001/api/v1/posts/${postData.postId}`, {
+      credentials: "include",
+      method:"DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(r => r.json())
+      .then(resp => {
+        if (resp.error) {
+          alert(resp.error)
+        } else {
+          dispatch(deletePostForever(postId))
+          history.push(`/trips`)
         }
       })
       .catch(console.log)
