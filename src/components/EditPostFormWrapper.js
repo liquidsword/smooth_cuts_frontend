@@ -29,10 +29,10 @@ class EditPostFormWrapper extends React.Component {
     return <>
               <NewPostForm editMode handleSubmit = { this.handleSubmit } />
               <br/>
-              <button stype={{ color: "red "}}
+              <button style={{ color: "red "}}
                 onClick={() => deletePost(postId, history )}> DELETE THIS POST!</button>
           </>
   }
 }
 
-export default connect(null, { updatePost, setEditFormData, resetNewPostForm, deletePost})(EditPostFormWrapper);
+export default connect(null, { updatePost, setEditFormData, resetNewPostForm, deletePost })(EditPostFormWrapper);
