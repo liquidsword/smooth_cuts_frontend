@@ -1,8 +1,8 @@
 import React from 'react';
 import { updatePost, deletePost } from '../actions/myPosts';
-import { setEditFormData, resetNewPostForm } from '../actions/newPostForm'
-import { connect } from 'react-redux'
-import NewPostForm from './NewPostForm.js'
+import { setEditFormData, resetNewPostForm } from '../actions/newPostForm';
+import { connect } from 'react-redux';
+import NewPostForm from './NewPostForm.js';
 
 class EditPostFormWrapper extends React.Component {
   componentDidMount() {

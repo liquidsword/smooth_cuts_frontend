@@ -28,7 +28,7 @@ const NewPostForm = ({ title, content, history, updateNewPostForm, userId, post,
     /><br/>
     <input
       type="submit"
-      value={ editMode ? "Update Trip" : "Create Post" }/>
+      value={ editMode ? "Update Post" : "Create Post" }/>
   </form>
 )};
 

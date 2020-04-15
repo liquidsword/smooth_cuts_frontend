@@ -103,24 +103,22 @@ export const updatePost = (postData, history) => {
       },
       body: JSON.stringify(changeablePostData)
     })
-    .
-
-    then(r => r.json())
-    .then(resp => {
-      if (resp.error) {
-        alert(resp.error)
-      } else {
-        dispatch(updatePostNow(resp.data))
-        history.push(`/posts/${resp.data.id}`)
-      }
-    })
-    .catch(console.log)
+      .then(r => r.json())
+      .then(resp => {
+        if (resp.error) {
+          alert(resp.error)
+        } else {
+          dispatch(updatePostNow(resp.data))
+          history.push(`/posts/${resp.data.id}`)
+        }
+      })
+      .catch(console.log)
+    }
   }
-}
 
-export const deletePost = (postId, postData, history) => {
+export const deletePost = (postId, history) => {
   return dispatch => {
-    return fetch (`http://localhost:3001/api/v1/posts/${postData.postId}`, {
+    return fetch(`http://localhost:3001/api/v1/posts/${postId}`, {
       credentials: "include",
       method:"DELETE",
       headers: {
@@ -133,7 +131,7 @@ export const deletePost = (postId, postData, history) => {
           alert(resp.error)
         } else {
           dispatch(deletePostForever(postId))
-          history.push(`/trips`)
+          history.push(`/posts`)
         }
       })
       .catch(console.log)
