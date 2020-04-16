@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Smooth Cuts
+
+Welcome to Smooth Cuts, this is a CRUD application for barbers to talk about the tools they utilize, what they find works best and what they don't like. Users can sign-up, log-in and logout as well as create new posts, delete posts and update their posts.
+
 ## Available Scripts
 
 In the project directory, you can run:
