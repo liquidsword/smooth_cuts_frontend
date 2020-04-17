@@ -5,7 +5,7 @@ export default (state = initialState, action) => {
     case "SET_MY_POSTS":
       return action.posts
     case 'ADD_POST':
-      return state.posts.concat(action.posts)
+      return state.concat(action.post)
     case 'UPDATE_POST':
       return state.map(post => post.id === action.post.id ? action.post : post)
     case "DELETE_POST":

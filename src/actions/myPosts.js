@@ -80,7 +80,6 @@ export const createPost = (postData, history) => {
           alert(resp.error)
         } else {
           dispatch(addPost(resp.data))
-          dispatch(resetNewPostForm())
           history.push(`/posts/${resp.data.id}`)
         }
       })
