@@ -20,7 +20,7 @@ const NewPostForm = ({ title, content, history, updateNewPostForm, userId, post,
       onChange={handleChange}
       value={title}
     /><br/>
-    <input
+    <textarea
       placeholder= "content"
       name="content"
       onChange={handleChange}
