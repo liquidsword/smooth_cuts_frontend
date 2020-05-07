@@ -1,6 +1,4 @@
 import React from 'react'
-import Login from './login.js'
-import Signup from './Signup.js'
 import { Link } from 'react-router-dom'
 import tools from '../B+W tools.jpg'
 

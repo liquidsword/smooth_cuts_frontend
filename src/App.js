@@ -4,14 +4,13 @@ import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar.js';
 import Login from './components/login.js';
-import Logout from './components/logout.js';
 import Signup from './components/Signup.js';
 import MyPosts from './components/MyPosts.js'
 import PostCard from './components/PostCard.js'
 import Home from './components/Home.js'
 import NewPostFormWrapper from './components/NewPostFormWrapper.js'
 import EditPostFormWrapper from './components/EditPostFormWrapper.js'
-import { Route, Switch, withRouter, Link } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 class App extends React.Component {
 

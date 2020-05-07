@@ -1,7 +1,5 @@
 //synchronous actions
 
-import { resetNewPostForm } from './newPostForm'
-
 export const setMyPosts = posts => {
   return {
     type: "SET_MY_POSTS",
@@ -77,6 +75,7 @@ export const createPost = (postData, history) => {
       .then(r => r.json())
       .then(resp => {
         if (resp.error) {
+        //  throw new Error(resp.error)
           alert(resp.error)
         } else {
           dispatch(addPost(resp.data))
@@ -84,6 +83,7 @@ export const createPost = (postData, history) => {
         }
       })
       .catch(console.log)
+      //in case my code breaks the catch will update with an error
   }
 }
 

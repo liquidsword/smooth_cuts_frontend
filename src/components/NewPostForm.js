@@ -1,5 +1,4 @@
 import React from 'react';
-import { createPost } from '../actions/myPosts.js'
 import { updateNewPostForm } from '../actions/newPostForm.js'
 import { connect } from 'react-redux'
 
