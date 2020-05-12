@@ -25,7 +25,6 @@ class MyPosts extends React.Component  {
     }
 
     sortList = () => {
-      // this.setState({posts.sort((a,b) => this.state.posts.title-b.title)})
         const sortedList = [...this.props.posts].sort((a,b ) => {
           //const firsttitle = a.attributes.title.toUpperCase()
           if (a.attributes.title > b.attributes.title) {
@@ -36,26 +35,21 @@ class MyPosts extends React.Component  {
           }
           return 0
         })
-        this.setState(prevState => ({ posts: sortedList}))
-
-         // [].concat(this.props.posts) => [{id, title, etc...}, {}]
+        this.setState(() => ({ posts: sortedList}))
     }
-// {posts.sort(function(a, b){return a-b})}
+
     render() {
-       if (const {posts} = this.props) {
-         return posts
-       }
-       else {
-         sortList
-       }
+       const {posts} = this.props
+       const postList = this.state.posts.length == 0 ? posts : this.state.posts
+
        return (
          <div>
             <button style={{ color: "red"}} onClick={this.sortList}>Sort!</button>
 
-          {posts.map(post => <Post title={post.attributes.title} id={post.id}/>)}
+            {postList.map(post => <Post title={post.attributes.title} id={post.id}/>)}
          </div>
        )
-   }
+     }
  }
 
  class Post extends React.Component {
@@ -80,16 +74,13 @@ class MyPosts extends React.Component  {
                <button className='increment' style={{ color: "green"}} onClick= {this.increment}>{this.state.upVote}</button>
              </div>
            )
-   }
- }
+         }
+  }
 
     const mapStateToProps = state => {
       return {
         posts: state.myPosts
       }
     }
-  //we provide mapStateToProps to Redux in order to tell Redux:
-  //to please provide us access to your state so that we can pick and choose
-  //the pieces of state we would like available to this particular component as props
 
   export default connect(mapStateToProps)(MyPosts)
