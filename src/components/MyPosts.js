@@ -40,7 +40,7 @@ class MyPosts extends React.Component  {
 
     render() {
        const {posts} = this.props
-       const postList = this.state.posts.length == 0 ? posts : this.state.posts
+       const postList = this.state.posts.length === 0 ? posts : this.state.posts
 
        return (
          <div>

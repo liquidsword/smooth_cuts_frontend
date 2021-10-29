@@ -147,7 +147,7 @@ export default function SignIn() {
                 primary={true}    
               >    
               <div>
-                <img src='Google.jpg' placeholder='google signin' />
+                <img src='Google.jpg' placeholder='google signin' alt= 'Google Icon'/>
               </div>
               
             </Button> 
